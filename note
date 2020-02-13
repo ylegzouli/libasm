@@ -36,11 +36,11 @@ https://www.bencode.net/blob/nasmcheatsheet.pdf
 _____________________________________________________________________________
 
 ft_strlen			[ok]
-ft_strcmp
-ft_strcpy
-ft_strdup
-ft_read
-ft_write
+ft_strcmp			[ok] voir ret fonction
+ft_strcpy			[ok]
+ft_strdup			
+ft_read				[ok]
+ft_write			[ok]
 
 ft_list_size		[ok]
 ft_bzero			[ok]
