@@ -1,0 +1,54 @@
+-> ARGUMENTS:
+
+RDI: 1er arg d'une ft
+RSI: 2eme arg
+RDX: 3eme arg
+
+-> REGISTRES:
+
+RAX: retour d'une ft en assembleur
+RCX
+CL
+BYTE[]: byte pointer
+
+-> APPEL SYSTEME:
+
+0x000003 = read
+0x000004 = write
+http://syscalls.kernelgrok.com
+http://shell-storm.org/shellcode/files/syscalls.html
+
+-> INSTRUCTIONS:
+
+mov: met la 2eme valeur dans la 1ere
+inc: incremente
+dec: decremente
+cmp: compare
+je: jump si comparaison ok
+jmp: jump
+
+_____________________________________________________________________________
+
+https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html
+https://gist.github.com/justinian/385c70347db8aca7ba93e87db90fc9a6
+https://www.bencode.net/blob/nasmcheatsheet.pdf
+
+_____________________________________________________________________________
+
+ft_strlen			[ok]
+ft_strcmp
+ft_strcpy
+ft_strdup
+ft_read
+ft_write
+
+ft_list_size		[ok]
+ft_bzero			[ok]
+
+___________________________________________________________________________
+
+https://github.com/alamorth42/libasm42/blob/master/ft_strcpy.s
+https://github.com/ska42/libasm/tree/master/srcs
+https://github.com/jukazekajou/libasm/blob/master/srcs/ft_write.s
+
+___________________________________________________________________________
