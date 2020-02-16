@@ -40,14 +40,17 @@ https://www.bencode.net/blob/nasmcheatsheet.pdf
 _____________________________________________________________________________
 
 ft_strlen			[ok]
-ft_strcmp			[ok]
+ft_strcmp			[ok]	pb dernier test ???
 ft_strcpy			[ok]
 ft_read			 	[ok]	voir retour ft erreur fd ????
-ft_write			[ok]
+ft_write			[ok]	voir ecriture dans un fichier ??
+ft_strdup			[ok]	
 
-ft_strdup			
 ft_list_size		
 ft_bzero			
+
+Makefile			[ok]
+MakefileBonus		
 
 ___________________________________________________________________________
 

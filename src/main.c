@@ -1,4 +1,4 @@
-#include "libasm.h"
+#include "../inc/libasm.h"
 #include <stdio.h>
 #include <string.h>
 #include <sys/stat.h>
@@ -87,7 +87,7 @@ int		main(int ac, char **av)
 	
 	printf("_____________________________________________\n");
 	printf("FT_READ\n");
-	fd = open("libasm.h", O_RDONLY);
+	fd = open("inc/libasm.h", O_RDONLY);
 	read(fd, buf, 100);
 	printf("[%s]\n", buf);
 	close(fd);
@@ -105,6 +105,10 @@ int		main(int ac, char **av)
 
 	printf("_____________________________________________\n");
 	printf("FT_STRDUP\n");
+
+	printf("[%s]\n", ft_strdup("bonjour")); 
+	printf("[%s]\n", ft_strdup("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")); 
+	printf("[%s]\n", ft_strdup("")); 
 
 	printf("_____________________________________________\n");
 	return (0);

@@ -6,22 +6,20 @@ section.text:
 
 _ft_strdup:
 	cmp rdi, 0x0
-	jz _error
-	call _ft_strlen ; call ft_strlen to get nb char to allocate
+	je error
+	call _ft_strlen
 	inc rax
 	push rdi
 	mov rdi, rax
 	call _malloc
 	cmp rax, 0x0
-	jz _error
+	je error
 	pop rdi
-	push rsi
 	mov rsi, rdi
 	mov rdi, rax
 	call _ft_strcpy
-	pop rsi
 	ret
 
-_error:
+error:
 	mov rax, 0x0
 	ret
