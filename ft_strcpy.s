@@ -1,5 +1,6 @@
 section .text
 	global _ft_strcpy
+	extern _ft_write
 
 _ft_strcpy:
 	xor rcx,rcx
@@ -9,13 +10,13 @@ _ft_strcpy:
 copy:
 	cmp [rsi + rcx], BYTE 0x0
 	je end
-	mov cl,BYTE [rsi + rcx]
-	mov BYTE [rdi + rcx],cl
+	mov dl,BYTE [rsi + rcx]
+	mov [rdi + rcx],dl
 	inc rcx
 	jmp copy
 
 end:
-	mov cl,BYTE 0x0
-	mov BYTE [rdi + rcx],cl
+	mov dl,BYTE 0x0
+	mov BYTE [rdi + rcx],dl
 	mov rax,rdi
 	ret

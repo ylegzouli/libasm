@@ -13,8 +13,8 @@ BYTE[]: byte pointe
 
 -> APPEL SYSTEME:
 
-0x000003 = read
-0x000004 = write
+0x2000003 = read
+0x2000004 = write
 http://syscalls.kernelgrok.com
 http://shell-storm.org/shellcode/files/syscalls.html
 
@@ -41,12 +41,11 @@ _____________________________________________________________________________
 
 ft_strlen			[ok]
 ft_strcmp			[ok]
-
-ft_strcpy			 boucle inf
+ft_strcpy			[ok]
+ft_read			 	[ok]	voir retour ft erreur fd ????
+ft_write			[ok]
 
 ft_strdup			
-ft_read				
-ft_write			 ret ft
 ft_list_size		
 ft_bzero			
 

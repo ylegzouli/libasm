@@ -1,12 +1,19 @@
 #include "libasm.h"
 #include <stdio.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/uio.h>
+#include <unistd.h>
 
 int		main(int ac, char **av)
 {
 	int		ret1;
 	int		ret2;
-	char	*dest;
+	char	dest[100];
+	int		fd;
+	char	buf[10000];
 
 	printf("_____________________________________________\n");
 	printf("FT_STRLEN\n");
@@ -71,16 +78,31 @@ int		main(int ac, char **av)
 	printf("\n");
 	ft_strcpy(dest, "bonjour");
 	printf("dest: [%s]\n", dest);
-	ft_strcpy(dest, "bonjour");
+	strcpy(dest, "bonjour");
 	printf("dest: [%s]\n", dest);
-
+	ft_strcpy(dest, "");
+    printf("dest: [%s]\n", dest);
+    strcpy(dest, "");
+    printf("dest: [%s]\n", dest);
 	
 	printf("_____________________________________________\n");
 	printf("FT_READ\n");
+	fd = open("libasm.h", O_RDONLY);
+	read(fd, buf, 100);
+	printf("[%s]\n", buf);
+	close(fd);
+	fd = open("libasm.h", O_RDONLY);
+	ft_read(fd, buf, 100);
+	printf("[%s]\n", buf);
+	close(fd);
 
 	printf("_____________________________________________\n");
 	printf("FT_WRITE\n");
-	
+	write(1, "bonjour", 7);
+	printf("\n");
+	ft_write(1, "bonjour", 7);
+	printf("\n");
+
 	printf("_____________________________________________\n");
 	printf("FT_STRDUP\n");
 
