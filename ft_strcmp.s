@@ -11,26 +11,51 @@ cmp:
 	je end
 	cmp [rsi + rcx],BYTE 0x0
 	je end
-	cmp [rdi + rcx],[rsi + rcx]
+	mov r9, [rsi + rcx]
+	cmp [rdi + rcx],r9
 	jne end
 	inc rcx
 	jmp cmp
 
 end:
-	cmp [rsi + rcx],[rsi + rcx]
-	jb greater
-	mov cl, [rdi + rcx]
-	sub cl,[rsi + rcx]
-	cmp cl,0
-	jne smaller
+	xor cl, cl
+	mov cl,BYTE [rdi + rcx]
+	mov rdx, [rsi + rcx]
+	cmp cl,BYTE 0x0
+	je casenull
+	xor cl, cl
+	mov cl,BYTE [rsi + rcx]
+	cmp cl,BYTE 0x0
+	je casenull
+	cmp [rdi + rcx],rdx
+	je equal
+	cmp [rdi + rcx],cl
+	ja greater
+	cmp [rdi + rcx],rdx
+	ja greater
+	cmp [rdi + rcx],rdx
+	jb smaller
+
+test:
+	mov rax, 33
 	ret
 
-; voir retour ft_strcmp ??? -1 / +1 ou diff entre les deux caractere ?????
+equal:
+	mov rax, 0
+	ret
 
 smaller:
-	add rax,1
+	mov rax,-1
 	ret
 
 greater:
-	sub rax,1
+	mov rax,1
 	ret
+
+casenull:
+	cmp [rdi + rcx], rdx
+	je equal
+	cmp [rdi + rcx], BYTE 0x0
+	je smaller
+	cmp [rsi + rcx], BYTE 0x0
+	je greater

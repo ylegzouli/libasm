@@ -9,7 +9,7 @@ RDX: 3eme arg
 RAX: retour d'une ft en assembleur
 RCX
 CL
-BYTE[]: byte pointer
+BYTE[]: byte pointe
 
 -> APPEL SYSTEME:
 
@@ -27,6 +27,10 @@ cmp: compare
 je: jump si comparaison ok
 jmp: jump
 
+-> APPEL DE FT EXTERNE:
+
+A 64 bit machine passes function parameters in rdi, rsi, rdx, rcx, r8, and r9
+
 _____________________________________________________________________________
 
 https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html
@@ -36,14 +40,15 @@ https://www.bencode.net/blob/nasmcheatsheet.pdf
 _____________________________________________________________________________
 
 ft_strlen			[ok]
-ft_strcmp			[ok] voir ret fonction
-ft_strcpy			[ok]
-ft_strdup			
-ft_read				[ok]
-ft_write			[ok]
+ft_strcmp			[ok]
 
-ft_list_size		[ok]
-ft_bzero			[ok]
+ft_strcpy			 boucle inf
+
+ft_strdup			
+ft_read				
+ft_write			 ret ft
+ft_list_size		
+ft_bzero			
 
 ___________________________________________________________________________
 
