@@ -1,6 +1,5 @@
 section .text
 	global _ft_strcpy
-	extern _ft_write
 
 _ft_strcpy:
 	xor rcx,rcx

@@ -29,7 +29,7 @@ $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 
 bonus: $(OBJ) $(OBJLIB)
-	ar rc libbonus.a $(OBJ) $(OBJLIB)
+	ar rc $(NAME) $(OBJ) $(OBJLIB)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.s
 	@mkdir $(OBJ_PATH) 2> /dev/null || true

@@ -2,60 +2,34 @@ section .text
 	global _ft_strcmp
 
 _ft_strcmp:
-	xor rcx,rcx
-	xor rax,rax
-	jmp cmp
+;		push rcx
+		mov	rcx, -1
 
-cmp:
-	cmp [rdi + rcx],BYTE 0x0
-	je end
-	cmp [rsi + rcx],BYTE 0x0
-	je end
-	mov r9, [rsi + rcx]
-	cmp [rdi + rcx],r9
-	jne end
-	inc rcx
-	jmp cmp
+loop:	
+		inc	rcx
+		mov	al, byte [rdi + rcx]
+		mov	bl, byte [rsi + rcx]
+		cmp	al, 0
+		je	end
+		cmp	bl, 0
+		je	end
+		cmp	al, bl
+    	je	loop
+		jmp	end
 
 end:
-	xor cl, cl
-	mov cl,BYTE [rdi + rcx]
-	mov rdx, [rsi + rcx]
-	cmp cl,BYTE 0x0
-	je casenull
-	xor cl, cl
-	mov cl,BYTE [rsi + rcx]
-	cmp cl,BYTE 0x0
-	je casenull
-	cmp [rdi + rcx],rdx
-	je equal
-	cmp [rdi + rcx],cl
-	ja greater
-	cmp [rdi + rcx],rdx
-	ja greater
-	cmp [rdi + rcx],rdx
-	jb smaller
-
-test:
-	mov rax, 33
-	ret
-
-equal:
-	mov rax, 0
-	ret
+;		pop	rcx
+		sub	rax, rbx
+		cmp rax, 0
+		jg greater
+		cmp rax, 0
+		jl smaller
+		ret
 
 smaller:
-	mov rax,-1
-	ret
-
+		mov rax, -1
+		ret
+	
 greater:
-	mov rax,1
-	ret
-
-casenull:
-	cmp [rdi + rcx], rdx
-	je equal
-	cmp [rdi + rcx], BYTE 0x0
-	je smaller
-	cmp [rsi + rcx], BYTE 0x0
-	je greater
+		mov rax, 1
+		ret
